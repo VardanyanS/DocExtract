@@ -9,13 +9,13 @@ def simple_ui():
     with st.sidebar:
         image = Image.open('IMG_6473.jpg')
         # image = image.rotate(270)
-        st.image(image, caption='ML Proof of Concepts')
+        st.image(image, caption='Proof of Concepts')
         # st.title("Sedrak Vardanyan")
         choice = st.radio('Navigation', ['InvoiceParser', 'SomethingElse'])
-        st.info('DocSense is an AI-powered document analysis tool that extracts valuable information from PDFs')
+        st.info('DocSense is an document analysis tool that extracts information from PDF type invoices')
     if choice == "InvoiceParser":
-        st.title('Upload your PDFs')
-        img_lst = st.file_uploader('Upload PDFs', accept_multiple_files=True)
+        st.title('Upload your Invoices')
+        img_lst = st.file_uploader('Upload PDF files', accept_multiple_files=True)
         result = invoice_df(img_lst)
         if not result.empty:
             st.write(result)
@@ -31,7 +31,7 @@ def simple_ui():
     st.download_button(
         label="Download data as CSV",
         data=csv,
-        file_name='large_df.csv',
+        file_name='results.csv',
         mime='text/csv',
     )
 
