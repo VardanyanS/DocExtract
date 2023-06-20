@@ -7,7 +7,7 @@ from invoice_df import invoice_df
 
 def simple_ui():
     with st.sidebar:
-        image = Image.open('IMG_6473.jpg')
+        image = Image.open('invoice.jpg')
         # image = image.rotate(270)
         st.image(image, caption='Proof of Concepts')
         # st.title("Sedrak Vardanyan")
@@ -15,8 +15,8 @@ def simple_ui():
         st.info('DocSense is an document analysis tool that extracts information from PDF type invoices')
     if choice == "InvoiceParser":
         st.title('Upload your Invoices')
-        img_lst = st.file_uploader('Upload PDF files', accept_multiple_files=True)
-        result = invoice_df(img_lst)
+        invoice_lst = st.file_uploader('Upload PDF files', accept_multiple_files=True)
+        result = invoice_df(invoice_lst)
         if not result.empty:
             st.write(result)
 
